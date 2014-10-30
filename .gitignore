@@ -44,6 +44,9 @@ Rplots.pdf
 # output dir
 output/
 
+# Vim backup
+.*.swp
+
 *.db
 \#*\#
 .\#*
