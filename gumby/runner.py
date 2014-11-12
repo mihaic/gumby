@@ -230,7 +230,7 @@ class ExperimentRunner(Logger):
         if self._cfg["use_remote_venv"]:
             python = "$HOME/venv/bin/python"
         else:
-            python = "python"
+            python = "/usr/bin/python"
         args = " ".join((python, path.join(self._remote_workspace_dir, 'gumby', self._env_runner), " ", self._cfg_path, " ", command))
         for host in self._cfg['head_nodes']:
             msg("Executing command in %s: %s" % (host, args))
