@@ -67,6 +67,14 @@ _ERROR_REASONS = (
 class _CommandTransport(SSHClientTransport):
     _secured = False
 
+    def __init__(self):
+        self.supportedKeyExchanges.extend(['curve25519-sha256@libssh.org',
+                                           'ecdh-sha2-nistp256',
+                                           'ecdh-sha2-nistp384',
+                                           'ecdh-sha2-nistp521',
+                                           'diffie-hellman-group-exchange-sha256',
+                                           'diffie-hellman-group14-sha1'])
+
     def verifyHostKey(self, hostKey, fingerprint):
         # TODO: we should check the key
         return succeed(True)
