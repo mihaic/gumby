@@ -37,7 +37,7 @@
 
 # Code:
 
-from os import path, chdir, environ
+from os import path, chdir, environ, makedirs
 from shutil import rmtree
 import logging
 import sys
@@ -321,6 +321,7 @@ class ExperimentRunner(Logger):
         output_dir = path.join(self._workspace_dir, 'output')
         if path.exists(output_dir):
             rmtree(output_dir)
+            makedirs(output_dir)
 
         # Step 3:
         # Sync the working dir with the head nodes
